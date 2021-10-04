@@ -1,6 +1,6 @@
-.ismobile {display:none;}
+.is-mobile {display:none;}
 @media (max-width: 600px) {
-    .is-mobile {display:block;}
+    .is-mobile {display:block; padding: 20px 20px;}
     .no-mobile {display:none;}
 }
 
@@ -74,6 +74,7 @@ body {
     font-family: verdana;
     margin: 0;
     margin-bottom:200px;
+    font-size: 90%;
 }
 
 
