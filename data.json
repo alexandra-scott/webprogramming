@@ -1,0 +1,62 @@
+[
+    {   "Title": "Astronaut in the Ocean",
+        "Artist": "Masked Wolf",
+        "Genre": "Hip-Hop/Rap",
+        "Year": 2019
+    },
+    {
+        "Title": "A-O-K", 
+        "Artist": "Tai Verdes",
+        "Genre": "Hip-Hop/Rap",
+        "Year": 2021
+    },    
+    {
+        "Title": "Girl Like You", 
+        "Artist": "Clara",
+        "Genre": "Pop",
+        "Year": 2020
+    },    
+    {
+        "Title": "Clouds",
+        "Artist": "NF",
+        "Genre": "Hip-Hop/Rap",
+        "Year": 2021
+    },    
+    {
+        "Title": "drivers license", 
+        "Artist": "Olivia Rodrigo",
+        "Genre": "Pop",
+        "Year": 2021
+    },
+    {
+        "Title": "Funk", 
+        "Artist":"C-Dot 416",
+        "Genre": "Hip-Hop/Rap ",
+        "Year": 2018
+    },    
+    {
+        "Title": "Hotel California",
+        "Artist": "Eagles",
+        "Genre": "Rock",
+        "Year": 1976
+    },
+    {
+        "Title": "Here Comes the Sun ",
+        "Artist": "The Beatles",
+        "Genre": "Rock/Pop-Rock",
+        "Year": 1969
+    },
+    {
+        "Title": "Bohemian Rhapsody",
+        "Artist": "Queen",
+        "Genre": "Rock",
+        "Year": 1975
+    },
+    {
+        "Title": "Cristofori's Dream",
+        "Artist": "David Lanz",
+        "Genre": "New Age",
+        "Year": 1988
+        }  
+    
+]
