@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSON songs</title>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <style type="text/css">
+            body,html
+            {   font-size: 20pt;
+                background-color: #b2e1fd;
+                margin:auto;
+                text-align: center;
+                padding: 20px 20px;
+            }
+            
+            button {
+                background-color: #a9a9a9;
+                color: #000000;
+                padding: 10px 12px;
+                display: block;
+                margin: auto;
+                margin-top:10px;
+                margin-bottom: 20px;
+                font-weight: 700;
+                font-size: 12pt;
+            }
+            
+            button:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+            
+            select {
+                background-color: #FFFFFF;
+                color: #000000;
+                padding: 10px 12px;
+                border: none;
+                font-weight: 700;
+                font-size: 10pt;
+                boder: 3px solid #000;
+            }
+
+            
+            #genres {
+                display: none;
+            }
+            
+             #songs{
+                 display: none;
+             }
+            
+            #filteredSongs
+            {
+                display: none;
+            }
+            
+            div {
+                background-color: #fff;
+                width: 500px;
+                font-size: 14pt;
+                margin: auto;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                border: 3px solid #000;
+                padding: 20px 20px 20px 20px;
+            }
+            
+            label {
+                font-size: 16pt;
+            }
+            
+            ul {
+                margin: auto;
+                text-align: left;
+                font-size: 15pt;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Song Database</h1>
+        <div style="background-color: #ededed">
+            <form name="data" method = "get">
+                <label for="genres">Choose a genre: </label>
+                <p id="genre-form"></p>
+            </form>
+            <button onclick="printSongs()">Filter</button>
+        </div>
+        
+        <div id="filteredSongs"></div>
+        <div id="allsonglist"></div>
+        <div id="genres"></div>
+        <div id="songs"></div>
+        <div id="output2"></div>
+        
+        <script language="javascript">
+            $.get( "https://alexandra-scott.github.io/webprogramming/data.json",
+                function( data ) {
+                    var arr = [];
+                    var song_arr = JSON.stringify(data);
+                    data.forEach(function(Song) 
+                    {
+                        for (i = 0; i < Song.Genre.length; i++){
+                            gen = Song.Genre;
+                            arr.push(gen[i]);
+                        }
+                        
+                    });
+                    
+                    arr = removeDupllicates(arr);
+                    
+                    document.getElementById('genres').innerHTML = arr;
+                    makeSelect();
+                    document.getElementById('songs').innerHTML = song_arr;
+                    
+            });
+            
+            /*Note this code was based on suggestion from 
+            https://levelup.gitconnected.com/7-ways-to-remove-duplicates-from-array-in-javascript-cea4144caf31*/
+            function removeDupllicates(array){            
+                return array.filter((value, index) => array.indexOf(value) == index);
+            }
+        
+            $.get( "https://alexandra-scott.github.io/webprogramming/data.json",
+                function( data ) {
+                    str = "<h2>Raw Data </h2>";
+                    str += JSON.stringify(data);
+                    str += "<br/>";
+                    document.getElementById('output2').innerHTML = str;
+                    strHTML= "<h2>All Songs</h2>";
+                    data.forEach(function(Song) { 
+                        strHTML += Song.Title + "</br>";
+                        strHTML +=  "Artist: " + Song.Artist + "</br>";
+                        strHTML +=  "Genre(s): ";
+                        for (i = 0; i < Song.Genre.length; i++){
+                            if (i > 0) {
+                                if (i == (Song.Genre.length - 1)) {
+                                    strHTML += ", and " + Song.Genre[i];
+                                } else {
+                                    strHTML += ", " + Song.Genre[i];
+                                }
+                                
+                            } else {
+                                strHTML += Song.Genre[i];
+                            }
+                        } 
+                        strHTML +=  "</br>";
+                        strHTML += "Released in " + Song.Year+ "</br>";
+                        strHTML += "<br/><br/>";
+                    }) 
+                document.getElementById('allsonglist').innerHTML = strHTML;  
+            });
+            
+            function printAllSongs(){
+
+                song_arr = document.getElementById('songs').innerHTML;
+                song_arr = JSON.parse(song_arr);
+                
+                s = "<h2> All Songs </h2>";
+                for(k = 0; k < song_arr.length; k++) {
+                    s +=  song_arr[k].Title + "</br>";
+                }
+                document.getElementById('allsonglist').innerHTML = s;
+                
+            }
+            
+            function printSongs() {
+                var select = document.getElementById('genre-select');
+                var desired_genre = select.options[select.selectedIndex].value;
+                
+                gen = document.getElementById('genres').innerHTML;
+                gen = gen.split(",");
+                song_arr = document.getElementById('songs').innerHTML;
+                song_arr = JSON.parse(song_arr);
+                result_arr = [];
+                
+                for (i = 0; i < song_arr.length; i++) {
+                    song = song_arr[i];
+                    
+                    for (j = 0; j < song.Genre.length; j++) {
+                        if (song.Genre[j] == desired_genre) {
+                            result_arr.push(song);
+                            break;
+                        }
+                    }
+                }
+                
+                if (desired_genre == "All") {
+                    result_arr = song_arr;
+                    s = "<h2> All Song Titles </h2>";
+                } else {
+                    s = "<h2> Filtered Results: " + desired_genre +" Songs </h2>";
+                }
+                
+                for(k = 0; k < result_arr.length; k++) {
+                    s +=  result_arr[k].Title + "</br>"; 
+                }
+                
+                document.getElementById('filteredSongs').innerHTML = s;
+                document.getElementById("filteredSongs").style.display = "block"; 
+            }
+            
+            function makeSelect()
+            {
+                
+                var genres = document.getElementById('genres').innerHTML;
+                genres = genres.split(",");
+                var t = "";
+            	t += "<select name='genres' id = 'genre-select'>";
+            	for (j=0; j < genres.length; j++)
+            	   t += "<option>" + genres[j] + "</option>";
+                t += "<option>" + "All" + "</option>";
+            	t+= "</select>"; 
+                document.getElementById('genre-form').innerHTML += t;
+            	return t;
+            }
+            
+        </script>
+    </body>
+</html>
