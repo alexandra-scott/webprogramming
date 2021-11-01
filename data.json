@@ -1,13 +1,13 @@
 [
     {   "Title": "Astronaut in the Ocean",
         "Artist": "Masked Wolf",
-        "Genre": "Hip-Hop/Rap",
+        "Genre": ["Hip-Hop", "Rap"],
         "Year": 2019
     },
     {
         "Title": "A-O-K", 
         "Artist": "Tai Verdes",
-        "Genre": "Hip-Hop/Rap",
+        "Genre": ["Hip-Hop", "Rap"],
         "Year": 2021
     },    
     {
@@ -19,7 +19,7 @@
     {
         "Title": "Clouds",
         "Artist": "NF",
-        "Genre": "Hip-Hop/Rap",
+        "Genre": ["Hip-Hop", "Rap"],
         "Year": 2021
     },    
     {
@@ -31,7 +31,7 @@
     {
         "Title": "Funk", 
         "Artist":"C-Dot 416",
-        "Genre": "Hip-Hop/Rap ",
+        "Genre": ["Hip-Hop", "Rap"],
         "Year": 2018
     },    
     {
@@ -43,7 +43,7 @@
     {
         "Title": "Here Comes the Sun ",
         "Artist": "The Beatles",
-        "Genre": "Rock/Pop-Rock",
+        "Genre": ["Rock", "Pop-Rock"],
         "Year": 1969
     },
     {
