@@ -49,7 +49,7 @@
     {
         "Title": "Bohemian Rhapsody",
         "Artist": "Queen",
-        "Genre": "Rock",
+        "Genre": ["Rock"],
         "Year": 1975
     },
     {
