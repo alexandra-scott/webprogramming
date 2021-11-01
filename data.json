@@ -13,7 +13,7 @@
     {
         "Title": "Girl Like You", 
         "Artist": "Clara",
-        "Genre": "Pop",
+        "Genre": ["Pop"],
         "Year": 2020
     },    
     {
@@ -25,7 +25,7 @@
     {
         "Title": "drivers license", 
         "Artist": "Olivia Rodrigo",
-        "Genre": "Pop",
+        "Genre": ["Pop"],
         "Year": 2021
     },
     {
@@ -37,7 +37,7 @@
     {
         "Title": "Hotel California",
         "Artist": "Eagles",
-        "Genre": "Rock",
+        "Genre": ["Rock"],
         "Year": 1976
     },
     {
@@ -55,7 +55,7 @@
     {
         "Title": "Cristofori's Dream",
         "Artist": "David Lanz",
-        "Genre": "New Age",
+        "Genre": ["New Age"],
         "Year": 1988
         }  
     
