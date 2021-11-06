@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Extra Credit</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<style>
+
+    #parent-p {
+        display:inline;
+        margin:auto;
+        padding: 20px 20px;
+    }
+    
+    div {
+        display: inline;
+    }
+    
+    body {
+        padding-top: 200px;
+        max-width: 50%;
+        margin: auto;
+        font-size: 20px;
+    }
+    
+    .button-p {
+        color: #000000;
+        padding: 10px 12px;
+        border: none;
+        display: inline;
+        margin: auto;
+        margin-top:20px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+    }
+    
+    .button-p:hover {
+    	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    #form {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    
+</style>
+</head>
+
+<body>
+
+        <div class="parent-p">   
+            <form class="form">
+                <input type="text" id="box-1"></input>
+                <button class="button-p" type="button" id="button-1" onclick="button(1)">JUMP ></button>
+                <input type="text" id="box-2"></input> 
+            </form>
+        </div>
+
+</body>
+
+<script language='javascript'>
+    
+    function button(){
+        jump_arrow = document.getElementById("button-1").innerHTML.substring(6, 7);
+        if (jump_arrow == 'g') {
+            document.getElementById("button-1").innerHTML = "JUMP <";
+            text = document.getElementById("box-1").value;
+            document.getElementById("box-2").value = text;
+            document.getElementById("box-1").value = "";
+        } else {
+            document.getElementById("button-1").innerHTML = "JUMP >";
+            text = document.getElementById("box-2").value;
+            document.getElementById("box-1").value = text;
+            document.getElementById("box-2").value = "";
+        }        
+    }
+</script>
+</html>
